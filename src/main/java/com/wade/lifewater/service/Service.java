@@ -1,4 +1,4 @@
-package com.wade.lifewater.service.impl;
+package com.wade.lifewater.service;
 
 public class Service {
 }
