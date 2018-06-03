@@ -12,6 +12,11 @@ public class DefaultView {
     @RequestMapping("/")
     public String defaultView(){
         return "login";
-
     }
+
+    @RequestMapping("/bootStrap")
+    public String bootStrap(){
+        return "login";
+    }
+
 }

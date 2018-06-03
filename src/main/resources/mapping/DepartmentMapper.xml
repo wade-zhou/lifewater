@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wade.lifewater.mapper.DepartmentMapper">
+  
+  <resultMap id="BaseResultMap" type="com.wade.lifewater.model.Department">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, name, code, edit_time, parent_id
+  </sql>
+
+
+  <select id="selectByPartentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_department
+    where parent_id = #{parent_id,jdbcType=INTEGER}
+  </select>
+
+  <select id="getAllDepartments" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_department
+  </select >
+
+</mapper>

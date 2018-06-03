@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
     datasource:
-        name: test
+        name: lifewater
         #一定带上编码设置，不然会乱码
-        url: jdbc:mysql://192.168.1.107:3306/lifewater?useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://192.168.1.108:3306/lifewater?useUnicode=true&characterEncoding=UTF-8
         username: LIFEWATER
         password: LIFEWATER
         # druid连接池
@@ -43,7 +43,6 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
-    cache: false
 logging:
   level:
-    com.wade.lifewater.controller: debug
+    com.wade.lifewater.mapper: DEBUG

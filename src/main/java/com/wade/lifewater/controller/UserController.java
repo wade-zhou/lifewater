@@ -4,8 +4,7 @@ import com.alibaba.druid.util.StringUtils;
 import com.wade.lifewater.model.User;
 import com.wade.lifewater.service.UserService;
 import com.wade.lifewater.utils.VerifyUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -59,7 +59,7 @@ public class UserController {
         String picCode = (String) session.getAttribute(VerifyUtil.RANDOMCODEKEY);
         if(!StringUtils.equalsIgnoreCase(valiCode, picCode)){
             model.addAttribute("tip", "验证码错误");
-            return "page/index";
+            return "redirect:/department/";
         }
         Map<String, String> map = new HashMap<String,String>();
         map.put("userName", userName);
@@ -76,6 +76,11 @@ public class UserController {
         return "page/index";
     }
 
+    @RequestMapping("index")
+    @ResponseBody
+    public List index(){
+        return null;
+    }
 
 }
 
